@@ -17,6 +17,7 @@ connectToMongo();
 // Available Routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/messages", require("./routes/message.routes.js"));
+app.use("/api/users", require("./routes/user.routes.js"));
 
 app.get("/hello", (req, res) => {
   res.send("hello");
