@@ -5,8 +5,8 @@ const connectToMongo = require("./db");
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const { app, server } = require("./socket/socket.js");
 
-const app = express();
 const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser());
@@ -23,6 +23,6 @@ app.get("/hello", (req, res) => {
   res.send("hello");
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
