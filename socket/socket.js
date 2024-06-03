@@ -1,13 +1,14 @@
 const { Server } = require("socket.io");
 const http = require("http");
 const express = require("express");
-
 const app = express();
+
+require("dotenv").config();
 
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173"], // Allows requests from this origin
+    origin: [`${process.env.HOST}`], // Allows requests from this origin
     methods: ["GET", "POST"], // Allows these methods
   },
 });
